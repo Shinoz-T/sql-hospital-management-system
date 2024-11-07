@@ -1,43 +1,50 @@
 # Hospital Management System - SQL Project
 
-This repository contains the implementation of a **Hospital Management System** using **Oracle SQL Developer**. The system models key hospital operations such as employee management, patient tracking, billing, expense management, stock management, leave tracking, and payroll handling.
-
-The database consists of multiple interrelated tables designed to handle and store information about various hospital operations. This system demonstrates the application of SQL for managing a hospital's day-to-day activities.
+This repository contains the implementation of a **Hospital Management System** using **Oracle SQL**. The system models various aspects of a hospital's data management, including employee records, patient information, billing, stock management, payroll, and more. It demonstrates the use of SQL procedures, indexing, and table relationships to efficiently manage hospital operations.
 
 ## Features
 
 ### 1. **Employee Management**
-- Store information about hospital employees (e.g., doctors, nurses, surgeons) including their roles and departments.
+- Manage details of hospital employees, such as doctors, nurses, and surgeons.
+- Each employee has a `jobtitle` and `department` which can be tracked.
 
 ### 2. **Patient Management**
-- Track patient information, including personal details and the doctor assigned to each patient.
+- Manage patient records, including personal information, assigned doctor, and medical details.
+- Patients are assigned to a doctor from the `employee` table.
 
 ### 3. **Billing Information**
-- Maintain billing details for patients, including the amount and date of the bill.
+- Track patient billing details, including the bill ID, total amount, and billing date.
+- Allows retrieval of billing information for specific patients using a stored procedure.
 
 ### 4. **Expense Management**
-- Record hospital expenses like medical supplies, equipment maintenance, and utilities.
+- Record hospital expenses such as medical supplies, equipment maintenance, and utilities.
 
 ### 5. **Stock Management**
-- Manage the stock of medical supplies and equipment in the hospital.
+- Keep track of stock items such as bandages, syringes, and gloves, with quantities and unit prices.
 
-### 6. **Leave Information**
-- Track employee leave, including the start and end dates, and leave types (e.g., annual leave, sick leave).
+### 6. **Leave Management**
+- Track leave details for employees (e.g., annual leave, sick leave, personal leave).
 
 ### 7. **Payroll Management**
-- Manage employee payroll, including salary, bonuses, deductions, and payment dates.
+- Store payroll information for employees, including base salary, bonuses, deductions, and payment date.
+
+### 8. **SQL Indexing and Optimization**
+- An index is created on the `billing_details.dateofbill` column to optimize query performance when filtering by date.
+
+### 9. **Stored Procedure**
+- A stored procedure, `GetPatientBilling`, is created to fetch billing information for a specific patient by their `patientid`.
 
 ## Database Schema
 
-The system consists of the following tables:
+This system uses the following tables:
 
 - **Employee**: Stores employee details such as name, job title, and department.
-- **Patient**: Stores patient information, including personal details and assigned doctor.
-- **Billing Details**: Tracks billing information for each patient.
-- **Expense Details**: Stores the hospital's expense data.
-- **Stock Details**: Manages inventory of medical supplies and equipment.
-- **Leave Info**: Stores information about employee leave.
-- **Payroll Info**: Manages payroll data for hospital employees.
+- **Patient**: Stores patient details, including name, date of birth, and assigned doctor.
+- **Billing Details**: Tracks billing details for each patient.
+- **Expense Details**: Stores hospital expenses such as medical supplies, maintenance, and utilities.
+- **Stock Details**: Tracks hospital inventory such as medical supplies and equipment.
+- **Leave Info**: Stores employee leave records, including leave type and dates.
+- **Payroll Info**: Stores employee payroll information, including salary, bonuses, and deductions.
 
 ## Prerequisites
 
